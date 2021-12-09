@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AssignmentEmpAPIKubernetes.Models;
 using System.Net;
+using Microsoft.AspNetCore.Cors;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,6 +13,7 @@ namespace AssignmentEmpAPIKubernetes.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("K8sApi")]
     public class EmployeesController : ControllerBase
     {
         static readonly IEmployeeRepository repository = new EmployeeRepostory();

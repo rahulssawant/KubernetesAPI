@@ -25,6 +25,12 @@ namespace AssignmentEmpAPIKubernetes
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(c => c.AddPolicy("K8sApi", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,6 +40,8 @@ namespace AssignmentEmpAPIKubernetes
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("K8sApi");
 
             app.UseRouting();
 
