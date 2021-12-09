@@ -1,0 +1,12 @@
+﻿apiVersion: v1
+kind: Pod
+metadata:
+  name: rahul-pod
+  labels:
+    app: web
+spec:
+  containers:
+    - name: rahul-api-pod
+      image: 2122609/kubernetesapiimage:kubernetesapiimage
+      ports:
+        - containerPort: 8082
